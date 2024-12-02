@@ -1,0 +1,26 @@
+Pasos para instalar odoo 14
+
+
+1) Instalar python 3.8		(3.8.20)
+sudo apt install python3.8 python3.8-dev python3.8-venv
+
+2) Crear el entorno virtual usando python 3.8
+python3.8 -m venv venv-odoo14
+
+3) Clonar el repo de odoo para obtener el core version 14
+git clone https://github.com/odoo/odoo.git --single-branch --branch 14.0 --depth 1
+
+4) Instalar los requirements (sin actualizar pip, 23.0.1)
+pip install -r requirements.txt
+
+5) Crear o copiar el odoo.conf
+[options]
+addons_path = (+ ruta de extra addons)
+admin_passwd = 
+
+6) Instalar watchdog para usar el --dev=all
+pip install watchdog		(4.0.2)
+
+
+7) Iniciar odoo14
+./odoo-bin -c odoo.conf

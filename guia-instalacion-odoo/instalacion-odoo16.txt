@@ -1,0 +1,28 @@
+Pasos para instalar odoo 16
+
+Nota: la docu dice python 3.7 o superior, asi que sigamos usando python 3.8
+
+
+1) Instalar python 3.8		(3.8.20)
+sudo apt install python3.8 python3.8-dev python3.8-venv
+
+2) Crear el entorno virtual usando python 3.8
+python3.8 -m venv venv-odoo16
+
+3) Clonar el repo de odoo para obtener la version 16
+git clone https://github.com/odoo/odoo.git --single-branch --branch 16.0 --depth 1
+
+4) Instalar los requirements (sin actualizar pip, 23.0.1)
+pip install -r requirements.txt
+
+5) En odoo 16, el requirements no trae watchdog, asi que toca instalarlo
+pip install watchdog
+
+6) Crear o copiar el odoo.conf
+[options]
+addons_path = 
+admin_passwd = 
+
+7) Levantar el odoo 16
+./odoo-bin -c odoo.conf --dev=all
+
