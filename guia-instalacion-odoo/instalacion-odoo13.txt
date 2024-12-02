@@ -1,0 +1,31 @@
+Pasos para instalar odoo 13 
+
+1) Tener instalado python 3.8		(se instaló la version 3.8.20)
+sudo apt install python3.8 python3.8-dev python3.8-venv
+
+2) Crear el entorno virtual usando python 3.8
+python3.8 -m venv venv-odoo13
+
+3) Clonar el repo de odoo para obtener el core version 13
+git clone https://github.com/odoo/odoo.git --single-branch --branch 13.0 --depth 1
+
+4) Instalar los requirements, el primer intento sera con la version de pip 23.0.1 (la que trae por defecto, es decir, sin actualizar)
+pip install -r requirements.txt
+
+Sorprendentemente instaló todo a la primera (debí haberlo grabado :o)
+
+5) Crear o copiar el odoo.conf
+[options]
+addons_path = (extra addons)
+admin_passwd = 
+
+
+6) Levantarlo....el odoo hehe
+./odoo-bin -c odoo.conf
+
+7) Si se va a instalar watchdog para el --dev=all, se instaló la version 4.0.2 en vez de la 3.0.0 (que es la de odoo12)
+pip install watchdog
+
+
+
+

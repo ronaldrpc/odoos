@@ -1,0 +1,29 @@
+Pasos para instalar odoo 18
+
+Nota: la docu dice python 3.10 o superior
+
+
+1) Instalar python 3.10		(3.10.12)
+sudo apt install python3.10 python3.10-dev python3.10-venv
+
+2) Crear el entorno virtual usando python 3.10
+python3.10 -m venv venv-odoo18
+
+3) Clonar el repo de odoo para obtener la version 18
+git clone https://github.com/odoo/odoo.git --single-branch --branch 18.0 --depth 1
+
+4) Instalar los requirements (sin actualizar pip, 22.0.2)
+pip install -r requirements.txt
+
+5) Instalar watchdog		(6.0.0, no se si sirva, toca probar)
+pip install watchdog
+
+6) Editar el odoo.conf (creo que vino con el clone)
+[options]
+addons_path = 
+admin_passwd = 
+
+7) Levantar el odoo 18
+./odoo-bin -c odoo.conf --dev=all
+
+8) Al crear la db, usar el idioma ingles y luego dentro del odoo instalan el español

@@ -1,0 +1,28 @@
+Pasos para instalar odoo 15
+
+Nota: tal vez la version 3.8 no es la oficial, sin embargo, con esta sirve
+
+
+1) Instalar python 3.8		(3.8.20)
+sudo apt install python3.8 python3.8-dev python3.8-venv
+
+2) Crear el entorno virtual usando python 3.8
+python3.8 -m venv venv-odoo15
+
+3) Clonar el repo de odoo para obtener la version 15
+git clone https://github.com/odoo/odoo.git --single-branch --branch 15.0 --depth 1
+
+4) Instalar los requirements (sin actualizar pip, 23.0.1)
+pip install -r requirements.txt
+
+5) Parece que en odoo 15, el requirements ya trae watchdog, aunque es la version 2.1.6 (no se si sirva)
+
+6) Crear o copiar el odoo.conf
+[options]
+addons_path = 
+admin_passwd = 
+
+7) Levantar el odoo 15
+./odoo-bin -c odoo.conf --dev=all
+
+

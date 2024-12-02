@@ -1,0 +1,18 @@
+Pasos para instalar odoo 12
+
+1) sudo apt install python3.7 python3.7-dev python3.7-venv
+2) python3.7 -m venv venv-odoo12  	(crear el entorno)
+3) source venv-odoo12/bin/activate	(activarlo)
+4) cd odoo				(accede a los requirements)
+5) no actualicé el pip, asi que quedó en versión 23.0.1
+6) pip install -r requirements.txt
+7) crear (o copiar) el odoo.conf junto al odoo-bin y agregar los addons_path + admin_passwd
+8) ./odoo-bin -c odoo.conf
+9) Si sale un error que el modulo 'babel' no existe (en el requirements esta Babel). Si sale, crear otro entorno
+
+
+
+
+Creando otro entorno
+
+5) actualizar pip hace que falle el install -r requirements
